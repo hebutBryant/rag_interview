@@ -1,0 +1,161 @@
+[
+  {
+    "id": 0,
+    "question": "what movies are about ginger rogers",
+    "entities": [
+      "ginger rogers"
+    ],
+    "answers": [
+      "Top Hat",
+      "Kitty Foyle",
+      "The Barkleys of Broadway"
+    ],
+    "reasoning_paths_simple": {
+      "ginger rogers": [
+        "ginger rogers <- has_tags - Top Hat - has_tags -> eric blore",
+        "ginger rogers <- has_tags - Top Hat - has_tags -> astaire and rogers",
+        "ginger rogers <- has_tags - Top Hat - directed_by -> Mark Sandrich",
+        "ginger rogers <- has_tags - Top Hat - has_genre -> Comedy",
+        "ginger rogers <- has_tags - Top Hat - starred_actors -> Ginger Rogers",
+        "ginger rogers <- has_tags - Top Hat - starred_actors -> Fred Astaire",
+        "ginger rogers <- has_tags - Top Hat - has_tags -> fred astaire",
+        "ginger rogers <- has_tags - Top Hat - written_by -> Dwight Taylor",
+        "ginger rogers <- has_tags - Top Hat - has_genre -> Musical",
+        "ginger rogers <- has_tags - Top Hat - has_tags -> bd-r",
+        "ginger rogers <- has_tags - Top Hat - written_by -> Allan Scott",
+        "ginger rogers <- has_tags - Top Hat - starred_actors -> Erik Rhodes",
+        "ginger rogers <- has_tags - Top Hat - starred_actors -> Edward Everett Horton",
+        "ginger rogers <- has_tags - Top Hat - has_tags -> mark sandrich",
+        "ginger rogers <- has_tags - Top Hat - release_year -> 1935",
+        "ginger rogers <- has_tags - Kitty Foyle - starred_actors -> James Craig",
+        "ginger rogers <- has_tags - Kitty Foyle - starred_actors -> Ginger Rogers",
+        "ginger rogers <- has_tags - Kitty Foyle - release_year -> 1940",
+        "ginger rogers <- has_tags - Kitty Foyle - written_by -> Christopher Morley",
+        "ginger rogers <- has_tags - Kitty Foyle - starred_actors -> Dennis Morgan",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - written_by -> Betty Comden",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - written_by -> Adolph Green",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - starred_actors -> Oscar Levant",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - starred_actors -> Ginger Rogers",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - starred_actors -> Fred Astaire",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - has_tags -> charles walters",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - has_tags -> fred astaire",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - has_genre -> Musical",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - has_tags -> bd-r",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - release_year -> 1949",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - directed_by -> Charles Walters",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - starred_actors -> Billie Burke"
+      ]
+    },
+    "reasoning_paths_dfs": {
+      "ginger rogers": [
+        "ginger rogers <- has_tags - Top Hat - has_tags -> eric blore",
+        "ginger rogers <- has_tags - Top Hat - has_tags -> astaire and rogers",
+        "ginger rogers <- has_tags - Top Hat - directed_by -> Mark Sandrich",
+        "ginger rogers <- has_tags - Top Hat - has_genre -> Comedy",
+        "ginger rogers <- has_tags - Top Hat - starred_actors -> Ginger Rogers",
+        "ginger rogers <- has_tags - Top Hat - starred_actors -> Fred Astaire",
+        "ginger rogers <- has_tags - Top Hat - has_tags -> fred astaire",
+        "ginger rogers <- has_tags - Top Hat - written_by -> Dwight Taylor",
+        "ginger rogers <- has_tags - Top Hat - has_genre -> Musical",
+        "ginger rogers <- has_tags - Top Hat - has_tags -> bd-r",
+        "ginger rogers <- has_tags - Top Hat - written_by -> Allan Scott",
+        "ginger rogers <- has_tags - Top Hat - starred_actors -> Erik Rhodes",
+        "ginger rogers <- has_tags - Top Hat - starred_actors -> Edward Everett Horton",
+        "ginger rogers <- has_tags - Top Hat - has_tags -> mark sandrich",
+        "ginger rogers <- has_tags - Top Hat - release_year -> 1935",
+        "ginger rogers <- has_tags - Kitty Foyle - starred_actors -> James Craig",
+        "ginger rogers <- has_tags - Kitty Foyle - starred_actors -> Ginger Rogers",
+        "ginger rogers <- has_tags - Kitty Foyle - release_year -> 1940",
+        "ginger rogers <- has_tags - Kitty Foyle - written_by -> Christopher Morley",
+        "ginger rogers <- has_tags - Kitty Foyle - starred_actors -> Dennis Morgan",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - written_by -> Betty Comden",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - written_by -> Adolph Green",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - starred_actors -> Oscar Levant",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - starred_actors -> Ginger Rogers",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - starred_actors -> Fred Astaire",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - has_tags -> charles walters",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - has_tags -> fred astaire",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - has_genre -> Musical",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - has_tags -> bd-r",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - release_year -> 1949",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - directed_by -> Charles Walters",
+        "ginger rogers <- has_tags - The Barkleys of Broadway - starred_actors -> Billie Burke"
+      ]
+    },
+    "retrieval_time": 0.03485894203186035
+  },
+  {
+    "id": 1,
+    "question": "which movies can be described by moore",
+    "entities": [
+      "moore"
+    ],
+    "answers": [
+      "Fahrenheit 9/11",
+      "Far from Heaven"
+    ],
+    "reasoning_paths_simple": {
+      "moore": [
+        "moore <- has_tags - Far from Heaven - has_tags -> julianne moore",
+        "moore <- has_tags - Far from Heaven - release_year -> 2002",
+        "moore <- has_tags - Far from Heaven - has_genre -> Drama",
+        "moore <- has_tags - Far from Heaven - starred_actors -> Dennis Haysbert",
+        "moore <- has_tags - Far from Heaven - has_tags -> dennis quaid",
+        "moore <- has_tags - Far from Heaven - has_tags -> r",
+        "moore <- has_tags - Far from Heaven - directed_by | written_by -> Todd Haynes",
+        "moore <- has_tags - Far from Heaven - starred_actors -> Julianne Moore",
+        "moore <- has_tags - Far from Heaven - has_tags -> patricia clarkson",
+        "moore <- has_tags - Far from Heaven - has_tags -> todd haynes",
+        "moore <- has_tags - Far from Heaven - starred_actors -> Dennis Quaid",
+        "moore <- has_tags - Far from Heaven - starred_actors -> Patricia Clarkson",
+        "moore <- has_tags - Far from Heaven - has_tags -> 1950s",
+        "moore <- has_tags - Fahrenheit 9/11 - has_tags -> iraq",
+        "moore <- has_tags - Fahrenheit 9/11 - has_tags -> michael moore",
+        "moore <- has_tags - Fahrenheit 9/11 - has_tags -> political",
+        "moore <- has_tags - Fahrenheit 9/11 - release_year -> 2004",
+        "moore <- has_tags - Fahrenheit 9/11 - directed_by | written_by -> Michael Moore",
+        "moore <- has_tags - Fahrenheit 9/11 - has_tags -> documentary",
+        "moore <- has_tags - Fahrenheit 9/11 - has_tags -> 9/11",
+        "moore <- has_tags - Fahrenheit 9/11 - has_genre -> Documentary",
+        "moore <- has_tags - Fahrenheit 9/11 - has_tags -> war",
+        "moore <- has_tags - Fahrenheit 9/11 - starred_actors -> George W. Bush",
+        "moore <- has_tags - Fahrenheit 9/11 - has_tags -> history"
+      ]
+    },
+    "reasoning_paths_dfs": {
+      "moore": [
+        "moore <- has_tags - Far from Heaven - has_tags -> julianne moore",
+        "moore <- has_tags - Far from Heaven - release_year -> 2002",
+        "moore <- has_tags - Far from Heaven - has_genre -> Drama",
+        "moore <- has_tags - Far from Heaven - starred_actors -> Dennis Haysbert",
+        "moore <- has_tags - Far from Heaven - has_tags -> dennis quaid",
+        "moore <- has_tags - Far from Heaven - has_tags -> r",
+        "moore <- has_tags - Far from Heaven - written_by -> Todd Haynes",
+        "moore <- has_tags - Far from Heaven - directed_by -> Todd Haynes",
+        "moore <- has_tags - Far from Heaven - starred_actors -> Julianne Moore",
+        "moore <- has_tags - Far from Heaven - has_tags -> patricia clarkson",
+        "moore <- has_tags - Far from Heaven - has_tags -> todd haynes",
+        "moore <- has_tags - Far from Heaven - starred_actors -> Dennis Quaid",
+        "moore <- has_tags - Far from Heaven - starred_actors -> Patricia Clarkson",
+        "moore <- has_tags - Far from Heaven - has_tags -> 1950s",
+        "moore <- has_tags - Fahrenheit 9/11 - has_tags -> iraq",
+        "moore <- has_tags - Fahrenheit 9/11 - has_tags -> michael moore",
+        "moore <- has_tags - Fahrenheit 9/11 - has_tags -> political",
+        "moore <- has_tags - Fahrenheit 9/11 - release_year -> 2004",
+        "moore <- has_tags - Fahrenheit 9/11 - written_by -> Michael Moore",
+        "moore <- has_tags - Fahrenheit 9/11 - directed_by -> Michael Moore",
+        "moore <- has_tags - Fahrenheit 9/11 - has_tags -> documentary",
+        "moore <- has_tags - Fahrenheit 9/11 - has_tags -> 9/11",
+        "moore <- has_tags - Fahrenheit 9/11 - has_genre -> Documentary",
+        "moore <- has_tags - Fahrenheit 9/11 - has_tags -> war",
+        "moore <- has_tags - Fahrenheit 9/11 - starred_actors -> George W. Bush",
+        "moore <- has_tags - Fahrenheit 9/11 - has_tags -> history"
+      ]
+    },
+    "retrieval_time": 0.025308609008789062
+  },
+  {
+    "time": 0.061656951904296875,
+    "average_time": 0.030828475952148438
+  }
+]
