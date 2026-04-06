@@ -1,0 +1,73 @@
+[
+  {
+    "question": "When is the premiere of 'Carole King & James Taylor: Just Call Out My Name'?",
+    "answer": [
+      [
+        "January 2 2022",
+        "Jan 2, 2022",
+        "Jan. 2, 2022",
+        "January 2, 2022",
+        "2 January 2022",
+        "2 Jan, 2022",
+        "2 Jan., 2022",
+        "2 January, 2022"
+      ]
+    ],
+    "response": "",
+    "label": [
+      0
+    ],
+    "context": [
+      "Dec 21, 2021 ... Concert documentary 'Carole King & James Taylor: Just Call Out My Name' will premiere on Jan. 2 via CNN.",
+      "Jan 2, 2022 ... Carole King & James Taylor: Just Call Out My Name premiered January 2, 2022, at 9:00pm ET/PT on CNN. The film will be available on demand via ...",
+      "Dec 22, 2021 ... Frank Marshall-Directed Film, CAROLE KING & JAMES TAYLOR: JUST CALL OUT MY NAME, Premieres Sunday, Jan. 2 at 9:00PM ET/PT on CNN CNN Films ..."
+    ],
+    "context_ids": [
+      "doc_32",
+      "doc_4",
+      "doc_37"
+    ],
+    "context_distances": [
+      0.8618710041046143,
+      0.8532019853591919,
+      0.8457781672477722
+    ],
+    "prompt": "system: You are an intelligent AI assistant. Please answer questions based on the user's instructions. Below are some reference retrieval results that may help you in answering the user's question.\nuser: \nReference retrieval results:\nDec 21, 2021 ... Concert documentary 'Carole King & James Taylor: Just Call Out My Name' will premiere on Jan. 2 via CNN.\nJan 2, 2022 ... Carole King & James Taylor: Just Call Out My Name premiered January 2, 2022, at 9:00pm ET/PT on CNN. The film will be available on demand via ...\nDec 22, 2021 ... Frank Marshall-Directed Film, CAROLE KING & JAMES TAYLOR: JUST CALL OUT MY NAME, Premieres Sunday, Jan. 2 at 9:00PM ET/PT on CNN CNN Films ...\n\nPlease write a high-quantify answer for the given question using only the provided context information (some of which might be irrelevant). Answer directly without explanation and keep the response short and direct.\nQuestion: When is the premiere of 'Carole King & James Taylor: Just Call Out My Name'?\nAnswer: ",
+    "accuracy": 0.0,
+    "retrieve_time": 0.24284958839416504,
+    "generate_time": 26.477315425872803,
+    "total_time": 26.720165014266968,
+    "avg_total_time": 26.720165014266968
+  },
+  {
+    "question": "The genre of the drama \"Good Sam\" is what?",
+    "answer": [
+      "medical"
+    ],
+    "response": "",
+    "label": [
+      0
+    ],
+    "context": [
+      "In May 2022, the series was canceled after one season. Good Sam. Genre, Medical drama. Created by, Katie Wech.",
+      "May 14, 2021 ... Medical drama Good Sam, starring Sophia Bush, and bowling comedy Smallwood ... genre with Good Sam considered a solid medical drama for the ...",
+      "Good Sam is an American medical drama television series created by Katie Wech for CBS, starring  Jason Isaacs and Sophia Bush which premiered on January 5, 2022.[1] In May 2022, the series was canceled after one season.[2]  Heart surgeon Dr. Samantha Griffith (Sophia Bush) becomes the top surgeon at  Lakeshore Sentinel Hospital after her boss and father, Dr. Rob Griffith (Jason Isaacs), falls into a coma. Her life becomes complicated when he awakens and wants to resume surgery, which means Samantha would be supervising him.[3]  On September 19, 2019, CBS put Good Sam into development.[22] Writer Katie Wech produced the series with Jennie Snyder Urman through her Sutton St. Productions and CBS Television Studios.  In February 2020, the series was given a pilot order, with further development paused during the COVID-19 pandemic.[23] On May 14, 2021, the show was given a series order.[24] On May 12, 2022, CBS canceled the series after one season.[2]  In February 2020, Sophia Bush was cast as lead role.[25] In March 2020, Jason Isaacs joined the main cast.[26] In January 2021, Skye P. Marshall and Michael Stahl-David were cast in starring roles."
+    ],
+    "context_ids": [
+      "doc_57",
+      "doc_58",
+      "doc_47"
+    ],
+    "context_distances": [
+      0.7250341773033142,
+      0.6874794960021973,
+      0.6807588338851929
+    ],
+    "prompt": "system: You are an intelligent AI assistant. Please answer questions based on the user's instructions. Below are some reference retrieval results that may help you in answering the user's question.\nuser: \nReference retrieval results:\nIn May 2022, the series was canceled after one season. Good Sam. Genre, Medical drama. Created by, Katie Wech.\nMay 14, 2021 ... Medical drama Good Sam, starring Sophia Bush, and bowling comedy Smallwood ... genre with Good Sam considered a solid medical drama for the ...\nGood Sam is an American medical drama television series created by Katie Wech for CBS, starring  Jason Isaacs and Sophia Bush which premiered on January 5, 2022.[1] In May 2022, the series was canceled after one season.[2]  Heart surgeon Dr. Samantha Griffith (Sophia Bush) becomes the top surgeon at  Lakeshore Sentinel Hospital after her boss and father, Dr. Rob Griffith (Jason Isaacs), falls into a coma. Her life becomes complicated when he awakens and wants to resume surgery, which means Samantha would be supervising him.[3]  On September 19, 2019, CBS put Good Sam into development.[22] Writer Katie Wech produced the series with Jennie Snyder Urman through her Sutton St. Productions and CBS Television Studios.  In February 2020, the series was given a pilot order, with further development paused during the COVID-19 pandemic.[23] On May 14, 2021, the show was given a series order.[24] On May 12, 2022, CBS canceled the series after one season.[2]  In February 2020, Sophia Bush was cast as lead role.[25] In March 2020, Jason Isaacs joined the main cast.[26] In January 2021, Skye P. Marshall and Michael Stahl-David were cast in starring roles.\n\nPlease write a high-quantify answer for the given question using only the provided context information (some of which might be irrelevant). Answer directly without explanation and keep the response short and direct.\nQuestion: The genre of the drama \"Good Sam\" is what?\nAnswer: ",
+    "accuracy": 0.0,
+    "retrieve_time": 0.060625553131103516,
+    "generate_time": 26.16193127632141,
+    "total_time": 26.222556829452515,
+    "avg_total_time": 26.47136092185974
+  }
+]

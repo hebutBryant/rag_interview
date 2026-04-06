@@ -1,0 +1,142 @@
+[
+  {
+    "question": "When is the premiere of 'Carole King & James Taylor: Just Call Out My Name'?",
+    "answer": [
+      [
+        "January 2 2022",
+        "Jan 2, 2022",
+        "Jan. 2, 2022",
+        "January 2, 2022",
+        "2 January 2022",
+        "2 Jan, 2022",
+        "2 Jan., 2022",
+        "2 January, 2022"
+      ]
+    ],
+    "response": "",
+    "label": [
+      0
+    ],
+    "context": [
+      "Dec 21, 2021 ... Concert documentary 'Carole King & James Taylor: Just Call Out My Name' will premiere on Jan. 2 via CNN.",
+      "Jan 2, 2022 ... Carole King & James Taylor: Just Call Out My Name premiered January 2, 2022, at 9:00pm ET/PT on CNN. The film will be available on demand via ...",
+      "Dec 22, 2021 ... Frank Marshall-Directed Film, CAROLE KING & JAMES TAYLOR: JUST CALL OUT MY NAME, Premieres Sunday, Jan. 2 at 9:00PM ET/PT on CNN CNN Films ..."
+    ],
+    "context_ids": [
+      "doc_32",
+      "doc_4",
+      "doc_37"
+    ],
+    "context_distances": [
+      0.8618710041046143,
+      0.8532019853591919,
+      0.8457781672477722
+    ],
+    "prompt": "system: You are an intelligent AI assistant. Please answer questions based on the user's instructions. Below are some reference retrieval results that may help you in answering the user's question.\nuser: \nReference retrieval results:\nDec 21, 2021 ... Concert documentary 'Carole King & James Taylor: Just Call Out My Name' will premiere on Jan. 2 via CNN.\nJan 2, 2022 ... Carole King & James Taylor: Just Call Out My Name premiered January 2, 2022, at 9:00pm ET/PT on CNN. The film will be available on demand via ...\nDec 22, 2021 ... Frank Marshall-Directed Film, CAROLE KING & JAMES TAYLOR: JUST CALL OUT MY NAME, Premieres Sunday, Jan. 2 at 9:00PM ET/PT on CNN CNN Films ...\n\nPlease write a high-quantify answer for the given question using only the provided context information (some of which might be irrelevant). Answer directly without explanation and keep the response short and direct.\nQuestion: When is the premiere of 'Carole King & James Taylor: Just Call Out My Name'?\nAnswer: ",
+    "accuracy": 0.0,
+    "retrieve_time": 0.1943955421447754,
+    "generate_time": 25.827203273773193,
+    "total_time": 26.02159881591797,
+    "avg_total_time": 26.02159881591797
+  },
+  {
+    "question": "The genre of the drama \"Good Sam\" is what?",
+    "answer": [
+      "medical"
+    ],
+    "response": "",
+    "label": [
+      0
+    ],
+    "context": [
+      "In May 2022, the series was canceled after one season. Good Sam. Genre, Medical drama. Created by, Katie Wech.",
+      "May 14, 2021 ... Medical drama Good Sam, starring Sophia Bush, and bowling comedy Smallwood ... genre with Good Sam considered a solid medical drama for the ...",
+      "Good Sam is an American medical drama television series created by Katie Wech for CBS, starring  Jason Isaacs and Sophia Bush which premiered on January 5, 2022.[1] In May 2022, the series was canceled after one season.[2]  Heart surgeon Dr. Samantha Griffith (Sophia Bush) becomes the top surgeon at  Lakeshore Sentinel Hospital after her boss and father, Dr. Rob Griffith (Jason Isaacs), falls into a coma. Her life becomes complicated when he awakens and wants to resume surgery, which means Samantha would be supervising him.[3]  On September 19, 2019, CBS put Good Sam into development.[22] Writer Katie Wech produced the series with Jennie Snyder Urman through her Sutton St. Productions and CBS Television Studios.  In February 2020, the series was given a pilot order, with further development paused during the COVID-19 pandemic.[23] On May 14, 2021, the show was given a series order.[24] On May 12, 2022, CBS canceled the series after one season.[2]  In February 2020, Sophia Bush was cast as lead role.[25] In March 2020, Jason Isaacs joined the main cast.[26] In January 2021, Skye P. Marshall and Michael Stahl-David were cast in starring roles."
+    ],
+    "context_ids": [
+      "doc_57",
+      "doc_58",
+      "doc_47"
+    ],
+    "context_distances": [
+      0.7250341773033142,
+      0.6874794960021973,
+      0.6807588338851929
+    ],
+    "prompt": "system: You are an intelligent AI assistant. Please answer questions based on the user's instructions. Below are some reference retrieval results that may help you in answering the user's question.\nuser: \nReference retrieval results:\nIn May 2022, the series was canceled after one season. Good Sam. Genre, Medical drama. Created by, Katie Wech.\nMay 14, 2021 ... Medical drama Good Sam, starring Sophia Bush, and bowling comedy Smallwood ... genre with Good Sam considered a solid medical drama for the ...\nGood Sam is an American medical drama television series created by Katie Wech for CBS, starring  Jason Isaacs and Sophia Bush which premiered on January 5, 2022.[1] In May 2022, the series was canceled after one season.[2]  Heart surgeon Dr. Samantha Griffith (Sophia Bush) becomes the top surgeon at  Lakeshore Sentinel Hospital after her boss and father, Dr. Rob Griffith (Jason Isaacs), falls into a coma. Her life becomes complicated when he awakens and wants to resume surgery, which means Samantha would be supervising him.[3]  On September 19, 2019, CBS put Good Sam into development.[22] Writer Katie Wech produced the series with Jennie Snyder Urman through her Sutton St. Productions and CBS Television Studios.  In February 2020, the series was given a pilot order, with further development paused during the COVID-19 pandemic.[23] On May 14, 2021, the show was given a series order.[24] On May 12, 2022, CBS canceled the series after one season.[2]  In February 2020, Sophia Bush was cast as lead role.[25] In March 2020, Jason Isaacs joined the main cast.[26] In January 2021, Skye P. Marshall and Michael Stahl-David were cast in starring roles.\n\nPlease write a high-quantify answer for the given question using only the provided context information (some of which might be irrelevant). Answer directly without explanation and keep the response short and direct.\nQuestion: The genre of the drama \"Good Sam\" is what?\nAnswer: ",
+    "accuracy": 0.0,
+    "retrieve_time": 0.06477689743041992,
+    "generate_time": 26.59214472770691,
+    "total_time": 26.65692162513733,
+    "avg_total_time": 26.33926022052765
+  },
+  {
+    "question": "Who won the 2022 Citrus Bowl?",
+    "answer": [
+      "Kentucky Wildcats"
+    ],
+    "response": "",
+    "label": [
+      0
+    ],
+    "context": [
+      "The 2022 Citrus Bowl was a college football bowl game played on January 1, 2022, with kickoff at 1:00 p.m. EST and televised on ABC.",
+      "The 2022 Citrus Bowl was a college football bowl game played on January 1, 2022, with kickoff at 1:00 p.m. EST and televised on ABC.[4] It was the 76th edition of the Citrus Bowl, and was one of the 2021–22 bowl games concluding the 2021 FBS football season. Sponsored by Vrbo, a vacation rental marketplace owned by the HomeAway division of Expedia, the game was officially known as the VRBO Citrus Bowl.  In the first meeting between the two programs, the game featured the Kentucky Wildcats of the Southeastern Conference (SEC) and the Iowa Hawkeyes of the Big Ten Conference. Both teams received and accepted invitations on Sunday, December 5.[5]  The Wildcats entered the Citrus Bowl with a 9–3 record (5–3 SEC) and a No. 22 ranking in the final CFP poll. Kentucky made its second Citrus Bowl appearance (2019).  The Hawkeyes, winners of the Big Ten West Division, entered the Citrus Bowl with a 10–3 record (7–2 B1G) and a No. 15 ranking in the final CFP poll. Iowa also made its second Citrus Bowl appearance (2005).  at Camping World Stadium • Orlando, Florida",
+      "Dec 30, 2022 ... ... winners and losers: LSU romps over Purdue 63-7 in Citrus Bowl ... Here are the winners and losers of the 2022-23 bowl season — so far."
+    ],
+    "context_ids": [
+      "doc_111",
+      "doc_80",
+      "doc_119"
+    ],
+    "context_distances": [
+      0.7716280221939087,
+      0.7638092041015625,
+      0.741550624370575
+    ],
+    "prompt": "system: You are an intelligent AI assistant. Please answer questions based on the user's instructions. Below are some reference retrieval results that may help you in answering the user's question.\nuser: \nReference retrieval results:\nThe 2022 Citrus Bowl was a college football bowl game played on January 1, 2022, with kickoff at 1:00 p.m. EST and televised on ABC.\nThe 2022 Citrus Bowl was a college football bowl game played on January 1, 2022, with kickoff at 1:00 p.m. EST and televised on ABC.[4] It was the 76th edition of the Citrus Bowl, and was one of the 2021–22 bowl games concluding the 2021 FBS football season. Sponsored by Vrbo, a vacation rental marketplace owned by the HomeAway division of Expedia, the game was officially known as the VRBO Citrus Bowl.  In the first meeting between the two programs, the game featured the Kentucky Wildcats of the Southeastern Conference (SEC) and the Iowa Hawkeyes of the Big Ten Conference. Both teams received and accepted invitations on Sunday, December 5.[5]  The Wildcats entered the Citrus Bowl with a 9–3 record (5–3 SEC) and a No. 22 ranking in the final CFP poll. Kentucky made its second Citrus Bowl appearance (2019).  The Hawkeyes, winners of the Big Ten West Division, entered the Citrus Bowl with a 10–3 record (7–2 B1G) and a No. 15 ranking in the final CFP poll. Iowa also made its second Citrus Bowl appearance (2005).  at Camping World Stadium • Orlando, Florida\nDec 30, 2022 ... ... winners and losers: LSU romps over Purdue 63-7 in Citrus Bowl ... Here are the winners and losers of the 2022-23 bowl season — so far.\n\nPlease write a high-quantify answer for the given question using only the provided context information (some of which might be irrelevant). Answer directly without explanation and keep the response short and direct.\nQuestion: Who won the 2022 Citrus Bowl?\nAnswer: ",
+    "accuracy": 0.0,
+    "retrieve_time": 0.059844255447387695,
+    "generate_time": 26.30469799041748,
+    "total_time": 26.364542245864868,
+    "avg_total_time": 26.34768756230672
+  },
+  {
+    "question": "What position did Jason Semore hold at Valdosta State before returning to Georgia Tech?",
+    "answer": [
+      "defensive coordinator"
+    ],
+    "response": "",
+    "label": [
+      0
+    ],
+    "context": [
+      "Sep 29, 2022 ... Share · Jason Semore helped lead Valdosta State to the 2021 NCAA Division II national championship game as defensive coordinator before returning ...",
+      "Jul 19, 2022 ... Jason Semore is a former Ganado High School football player who now is a ... Temple University, Valdosta State University and Georgia Tech.",
+      "Jason Semore is a former Ganado High School football player who now is a linebackers coach at Georgia Tech University in Atlanta. Semore was a multi-sport athlete for the Hornets. (Photo courtesy Jason Semore)                     GANADO, Ariz. — He’s a household name in sports around sports Ganado, Arizona. These days, though, he’s passing his football knowledge on to linebackers at Georgia Tech University in Atlanta. The school is a major research institution and a member of the Atlantic Coast Conference. There’s still life in the throwing arm. His legs feel good. But that’s not the focus of Jason Semore. “I played football, baseball, track and field and I wrestled at Ganado High School,” said Semore, 40, who was part of the Hornets’ football teams that won a string of championships in the late 1990s and early 2000s. “My first sport was baseball, but I was always around football because my dad was always a coach.” Semore was born in Portland, Oregon, but grew up on the Navajo Nation in Ganado. His grandparents lived in Ganado in the 1970s and he lived on the reservation for some 17 years. He played linebacker and running back in football, catcher and third base in baseball and ran sprints in track. In football, Semore preferred defense and likes coaching defense."
+    ],
+    "context_ids": [
+      "doc_131",
+      "doc_155",
+      "doc_134"
+    ],
+    "context_distances": [
+      0.8128054141998291,
+      0.7856073379516602,
+      0.782199501991272
+    ],
+    "prompt": "system: You are an intelligent AI assistant. Please answer questions based on the user's instructions. Below are some reference retrieval results that may help you in answering the user's question.\nuser: \nReference retrieval results:\nSep 29, 2022 ... Share · Jason Semore helped lead Valdosta State to the 2021 NCAA Division II national championship game as defensive coordinator before returning ...\nJul 19, 2022 ... Jason Semore is a former Ganado High School football player who now is a ... Temple University, Valdosta State University and Georgia Tech.\nJason Semore is a former Ganado High School football player who now is a linebackers coach at Georgia Tech University in Atlanta. Semore was a multi-sport athlete for the Hornets. (Photo courtesy Jason Semore)                     GANADO, Ariz. — He’s a household name in sports around sports Ganado, Arizona. These days, though, he’s passing his football knowledge on to linebackers at Georgia Tech University in Atlanta. The school is a major research institution and a member of the Atlantic Coast Conference. There’s still life in the throwing arm. His legs feel good. But that’s not the focus of Jason Semore. “I played football, baseball, track and field and I wrestled at Ganado High School,” said Semore, 40, who was part of the Hornets’ football teams that won a string of championships in the late 1990s and early 2000s. “My first sport was baseball, but I was always around football because my dad was always a coach.” Semore was born in Portland, Oregon, but grew up on the Navajo Nation in Ganado. His grandparents lived in Ganado in the 1970s and he lived on the reservation for some 17 years. He played linebacker and running back in football, catcher and third base in baseball and ran sprints in track. In football, Semore preferred defense and likes coaching defense.\n\nPlease write a high-quantify answer for the given question using only the provided context information (some of which might be irrelevant). Answer directly without explanation and keep the response short and direct.\nQuestion: What position did Jason Semore hold at Valdosta State before returning to Georgia Tech?\nAnswer: ",
+    "accuracy": 0.0,
+    "retrieve_time": 0.0629572868347168,
+    "generate_time": 26.622620105743408,
+    "total_time": 26.685577392578125,
+    "avg_total_time": 26.432160019874573
+  },
+  {
+    "final_accuracy": 0.0,
+    "average_time": 26.685577392578125,
+    "sample_num": 4,
+    "max_tokens": 256,
+    "top_k": 3
+  }
+]

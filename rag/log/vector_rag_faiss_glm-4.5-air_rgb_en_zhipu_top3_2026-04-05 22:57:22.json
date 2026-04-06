@@ -1,0 +1,42 @@
+[
+  {
+    "question": "When is the premiere of 'Carole King & James Taylor: Just Call Out My Name'?",
+    "answer": [
+      [
+        "January 2 2022",
+        "Jan 2, 2022",
+        "Jan. 2, 2022",
+        "January 2, 2022",
+        "2 January 2022",
+        "2 Jan, 2022",
+        "2 Jan., 2022",
+        "2 January, 2022"
+      ]
+    ],
+    "response": "",
+    "label": [
+      0
+    ],
+    "context": [
+      "Dec 21, 2021 ... Concert documentary 'Carole King & James Taylor: Just Call Out My Name' will premiere on Jan. 2 via CNN.",
+      "Jan 2, 2022 ... Carole King & James Taylor: Just Call Out My Name premiered January 2, 2022, at 9:00pm ET/PT on CNN. The film will be available on demand via ...",
+      "Dec 22, 2021 ... Frank Marshall-Directed Film, CAROLE KING & JAMES TAYLOR: JUST CALL OUT MY NAME, Premieres Sunday, Jan. 2 at 9:00PM ET/PT on CNN CNN Films ..."
+    ],
+    "context_ids": [
+      "doc_32",
+      "doc_4",
+      "doc_37"
+    ],
+    "context_distances": [
+      0.8618710041046143,
+      0.8532019853591919,
+      0.8457781672477722
+    ],
+    "prompt": "system: You are an intelligent AI assistant. Please answer questions based on the user's instructions. Below are some reference retrieval results that may help you in answering the user's question.\nuser: \nReference retrieval results:\nDec 21, 2021 ... Concert documentary 'Carole King & James Taylor: Just Call Out My Name' will premiere on Jan. 2 via CNN.\nJan 2, 2022 ... Carole King & James Taylor: Just Call Out My Name premiered January 2, 2022, at 9:00pm ET/PT on CNN. The film will be available on demand via ...\nDec 22, 2021 ... Frank Marshall-Directed Film, CAROLE KING & JAMES TAYLOR: JUST CALL OUT MY NAME, Premieres Sunday, Jan. 2 at 9:00PM ET/PT on CNN CNN Films ...\n\nPlease write a high-quantify answer for the given question using only the provided context information (some of which might be irrelevant). Answer directly without explanation and keep the response short and direct.\nQuestion: When is the premiere of 'Carole King & James Taylor: Just Call Out My Name'?\nAnswer: ",
+    "accuracy": 0.0,
+    "retrieve_time": 0.1959822177886963,
+    "generate_time": 25.687990427017212,
+    "total_time": 25.883972644805908,
+    "avg_total_time": 25.883972644805908
+  }
+]
