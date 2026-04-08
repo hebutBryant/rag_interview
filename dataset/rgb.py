@@ -3,8 +3,8 @@ import os
 from typing import List
 from utils.base import read_json
 
-RGB_DATAPATH = "/home/hdd/depcache/dataset/RGB"
-RGB_KB_DATAPATH = "/home/hdd/depcache/dataset/RGB/rgb_triplets.json"
+RGB_DATAPATH = "RGB"
+RGB_KB_DATAPATH = "RGB/rgb_triplets.json"
 
 
 from utils.base import exists
