@@ -114,6 +114,14 @@ def vectorrag_with_faiss(
 
         return str(answer)
 
+
+
+# 代码的这一部分注释，
+# 对问题进行向量检索
+# 整理检索结果并构建上下文
+# 调用大语言模型基于上下文生成答案
+# 保存每条样本的检索与生成结果，供后续评测使用
+###########################################################################
     for i, (question, answer) in enumerate(
         tqdm(zip(questions, answers), total=len(questions))
     ):
@@ -144,6 +152,11 @@ def vectorrag_with_faiss(
         outside_generate_time = -time.time()
         ret = llm.prompt_complete(question=question, context=context)
         outside_generate_time += time.time()
+############################################################################################
+
+
+
+
 
         response = ret["response"]
         generate_time = ret["generate_time"]

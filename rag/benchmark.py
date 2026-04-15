@@ -203,7 +203,7 @@ def build_dataset(samples: List[Dict[str, Any]]) -> Dataset:
     return Dataset.from_list(rows)
 
 
-
+######################################################################################
 # def benchmark_rag(
 #     input_json: str,
 #     output_dir: str,
@@ -212,8 +212,14 @@ def build_dataset(samples: List[Dict[str, Any]]) -> Dataset:
 #     base_url: str = "https://dashscope.aliyuncs.com/compatible-mode/v1",
 # ):
 #     pass   这里封装一个benchmark函数
+# 让学生实现完整流程：
 
-
+# # 1. 加载 json
+# # 2. 转换为 ragas 格式
+# # 3. 构建 dataset
+# # 4. 调用 evaluate
+# # 5. 输出 summary + csv
+#####################################################################################
 
 
 def main():
