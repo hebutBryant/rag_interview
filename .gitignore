@@ -1,5 +1,4 @@
-# 忽略所有 json
-*.json
+rag/log/
 
 # 忽略 python 编译文件
 *.pyc

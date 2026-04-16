@@ -3,8 +3,9 @@ import os
 from typing import List
 from utils.base import read_json
 
-RGB_DATAPATH = "RGB"
-RGB_KB_DATAPATH = "RGB/rgb_triplets.json"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RGB_DATAPATH = os.path.join(BASE_DIR, "dataset/RGB")
+RGB_KB_DATAPATH = os.path.join(BASE_DIR, "dataset/RGB/rgb_triplets.json")
 
 
 from utils.base import exists
@@ -29,7 +30,7 @@ def get_rgb_info(file="en", chunk_size=512):
     texts = []
     questions = []
     answers = []
-    with open(data_file, "r") as f:
+    with open(data_file, "r",encoding='utf-8') as f:
         for line in f:
             instance = json.loads(line)
             if file == "en_fact":

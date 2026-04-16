@@ -8,16 +8,28 @@ from typing import Dict, List, Optional
 import yaml
 
 
+import os
+
 def get_base_dir():
-    # co-locate depcache intermediates with other cached data in ~/.cache (by default)
-    if os.environ.get("DEPCACHE_BASE_DIR"):
-        depcache_dir = os.environ.get("DEPCACHE_BASE_DIR")
-    else:
-        home_dir = os.path.expanduser("~")
-        cache_dir = os.path.join(home_dir, ".cache")
-        depcache_dir = os.path.join(cache_dir, "DepCacheV2")
-    os.makedirs(depcache_dir, exist_ok=True)
-    return depcache_dir
+    """
+    返回项目内的 Faiss 存储路径：
+    rag_interview/database/faiss_db
+    并保证每个用户在自己的环境下独立存在
+    """
+
+    # 当前文件路径 → utils/base.py
+    current_file = os.path.abspath(__file__)
+
+    # 回到项目根目录 rag_interview
+    project_root = os.path.dirname(os.path.dirname(current_file))
+
+    # 拼接目标路径
+    faiss_dir = os.path.join(project_root, "database", "faiss_db")
+
+    # 自动创建
+    os.makedirs(faiss_dir, exist_ok=True)
+
+    return faiss_dir
 
 
 def read_yaml(file_path: str = "../config/config.yaml") -> Dict:

@@ -300,9 +300,10 @@ if __name__ == "__main__":
     print("开始处理问题...")
 
     create_dir("./log")
+    safe_time = get_date_now().replace(":", "-")
     log_file = (
         f"./log/vector_rag_faiss_{llm.model_name}_rgb_en_"
-        f"{args.backend}_top{args.top_k}_{get_date_now()}.json"
+        f"{args.backend}_top{args.top_k}_{safe_time}.json"
     )
 
     questions = rgb_info["questions"][:10]

@@ -118,6 +118,94 @@ class FaissDB:
         else:
             raise FileNotFoundError(f"Meta file {self.meta_path} not found")
 
+
+
+
+#  后面这三个函数作为考题，写出一下
+# Todo List：完成 VectorRAG 的向量数据库核心功能
+
+# 请基于给定的 FaissDB 类，补全以下 4 个核心函数，使其能够支持文本向量化、索引写入、批量建库和相似度检索。
+
+# 1. get_embedding(query, is_query=True)
+
+# 目标：
+# 实现文本到向量的编码功能。
+
+# 要求：
+
+# 支持输入为单条字符串 str，也支持多条文本 list[str]
+
+# 当 is_query=True 时，为 query 侧添加检索指令前缀：
+
+# "Represent this sentence for searching relevant passages: "
+# 调用 self.embed_model._encode(...) 获取 embedding
+# 返回类型统一为 np.ndarray，数据类型为 np.float32
+# 若输入为单条字符串，返回单个向量；若输入为列表，返回二维向量矩阵
+
+# 考察点：
+
+# query/doc 双塔输入差异
+# embedding 批量编码
+# numpy 数据类型与 shape 处理
+# 2. insert(embeddings)
+
+# 目标：
+# 实现向量写入 FAISS 索引。
+
+# 要求：
+
+# 支持输入为 list 或 np.ndarray
+# 保证数据类型为 float32
+# 若输入是单条向量（一维），需要扩展成二维
+# 调用 self.index.add(...) 将向量插入索引
+
+# 考察点：
+
+# FAISS 对输入 shape 的要求
+# 单条/批量向量兼容处理
+# 向量库写入流程
+# 3. generate_embedding_and_insert()
+
+# 目标：
+# 实现建库阶段：对所有文本分批编码，并逐批写入 FAISS。
+
+# 要求：
+
+# 遍历 self.texts
+# 按 self.batch_size 分批处理
+# 每批调用 get_embedding(batch_texts, is_query=False)
+# 将生成的 embedding 调用 insert(...) 写入索引
+# 使用 tqdm 展示进度条
+
+# 考察点：
+
+# 批处理建库流程
+# 大规模文本编码
+# 文本列表切片与边界控制
+# 4. search(queries, top_k=5)
+
+# 目标：
+# 实现相似度检索功能。
+
+# 要求：
+
+# 支持单 query 和多 query
+# 对 query 调用 get_embedding(..., is_query=True) 得到查询向量
+# 调用 self.index.search(query_embeddings, top_k) 检索 top-k
+# 根据返回的 ids 找回原始文本内容
+# 返回：
+# 单 query：matched_texts, distances, matched_ids
+# 多 query：matched_texts_list, distances, matched_ids_list
+# 需要处理非法 id（如 -1）的情况
+
+# 考察点：
+
+# 向量检索流程
+# top-k 结果解析
+# 检索 id 到原文映射
+# 单样本/批量查询统一设计
+
+
     def generate_embedding_and_insert(self):
         """为所有文本生成 embedding 并写入索引"""
         n_texts = len(self.texts)
@@ -216,6 +304,10 @@ class FaissDB:
         return matched_texts_list, distances, matched_ids_list
 
 
+
+
+
+
 def main():
     texts = [
         "Donnie Darko is a psychological thriller movie.",
@@ -233,7 +325,7 @@ def main():
         texts=texts,
         overwrite=True,          # 第一次建库用 True；后面复用索引用 False
         batch_size=4,
-        device="cuda:1",
+        device="cuda:0",
         db_dir="./faiss_db",
         use_gpu_index=False,     # 先用 CPU index，最稳
     )
@@ -245,7 +337,7 @@ def main():
         "crime family movie",
     ]
 
-    matched_texts, distances = db.search(queries, top_k=3)
+    matched_texts, distances, _ = db.search(queries, top_k=3)
 
     for i, query in enumerate(queries):
         print(f"\nQuery {i + 1}: {query}")

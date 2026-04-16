@@ -293,6 +293,159 @@ class IGraph:
                 entity_path_dict[entity].append(path_str)
         return entity_path_dict
 
+
+# To Do List
+# 1. 检查起始实体是否存在于图中
+
+# 对于每个输入实体：
+
+# 判断该实体是否存在于图节点中
+# 如果不存在，可以跳过该实体，并输出提示信息
+
+# 例如：
+
+# if entity not in self.graph.vs["name"]:
+#     ...
+# 考察点
+# 图节点查找
+# 异常输入处理
+# 2. 找到实体对应的起始节点 index
+
+# 对于存在的实体：
+
+# 通过图节点名称找到其在图中的索引
+# 作为 DFS 的起点
+
+# 例如：
+
+# start_idx = self.graph.vs.find(name=entity).index
+# 考察点
+# 图节点属性索引
+# 名称到节点 id 的映射
+# 3. 使用 DFS 遍历图，抽取路径
+
+# 实现一个递归 DFS 函数，例如：
+
+# def dfs(current_node, path_so_far, depth):
+#     ...
+
+# 需要完成：
+
+# 从当前节点出发，获取相邻边
+# 找到相邻节点
+# 构造当前可扩展的三元组
+# 递归访问下一层节点
+# 考察点
+# DFS 基本实现
+# 递归搜索
+# 图遍历逻辑
+# 4. 构造路径中的三元组表示
+
+# 对于每一条边，需要构造 triplet：
+
+# (
+#     source_entity_name,
+#     relation_name,
+#     target_entity_name,
+# )
+
+# 其中：
+
+# source_entity_name 来自起点边一端
+# relation_name 来自边属性 name
+# target_entity_name 来自边另一端
+
+# 例如：
+
+# triple = (
+#     self.graph.vs[src]["name"],
+#     edge["name"] if "name" in self.graph.es.attribute_names() else None,
+#     self.graph.vs[tgt]["name"],
+# )
+# 考察点
+# 图中边与节点属性读取
+# triplet 数据结构构建
+# 5. 控制最大 hop 深度
+
+# DFS 不应无限扩展，需要满足：
+
+# 当 depth >= hop 时停止继续向下搜索
+# 当前已有路径应加入结果集
+# 考察点
+# 多跳检索控制
+# 搜索边界条件设计
+# 6. 避免路径中重复使用同一个 triplet
+
+# 为了避免循环路径或无意义重复扩展，需要检查：
+
+# 当前 triplet 是否已经在 path_so_far 中
+# 若已出现，则不再加入当前路径
+
+# 例如：
+
+# if triple not in path_so_far:
+#     ...
+# 考察点
+# 路径去重
+# 图搜索中的环处理
+# 7. 保存完整路径
+
+# 当出现以下情况时，应将当前路径加入结果：
+
+# 当前节点没有可继续扩展的邻居
+# 当前深度达到 hop
+# 当前路径非空
+
+# 例如：
+
+# if not neighbors or depth >= hop:
+#     if path_so_far:
+#         completed_paths.append(path_so_far)
+#     return
+# 考察点
+# 路径结束条件
+# 搜索结果组织
+# 8. 返回每个实体对应的所有路径
+
+# 最终返回：
+
+# entity_path_dict[entity] = completed_paths
+
+# 整体格式为：
+
+# Dict[str, List[List[Tuple[str, str, str]]]]
+# 考察点
+# 多实体批量处理
+# 结果格式设计
+# 输入输出示例
+# 输入
+# entities = ["Tom Hanks"]
+# hop = 2
+# 可能输出
+# {
+#     "Tom Hanks": [
+#         [
+#             ("Tom Hanks", "acted_in", "Forrest Gump"),
+#             ("Forrest Gump", "directed_by", "Robert Zemeckis")
+#         ],
+#         [
+#             ("Tom Hanks", "acted_in", "Cast Away")
+#         ]
+#     ]
+# }
+# 验收标准
+
+# 补全后，函数应满足：
+
+# 能处理多个起始实体
+# 能正确做 DFS 遍历
+# 能限制最大 hop
+# 能输出 triplet path
+# 返回格式正确
+# 对不存在实体有合理处理
+# 不出现明显重复路径
+###########################################
+
     def subgraph_extraction_to_paths_dfs(self, entities: List[str], hop: int):
         """
         Extracts all paths within specified hops starting from given entities using DFS.
@@ -342,6 +495,8 @@ class IGraph:
             entity_path_dict[entity] = completed_paths
 
         return entity_path_dict
+
+##################################################
 
     def convert_triplet_lists_to_paths(self, entity_triplets_dict):
         entity_path_dict = {}
