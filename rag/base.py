@@ -15,7 +15,7 @@ class RAG(ABC):
         top_k: int = 3,
         logger: Logger = None,
         timer: Timer = None,
-        monitor: ResourceMonitor = None,
+        monitor: Any = None,  # 资源监控器（可选，ResourceMonitor 未在本仓库提供，留作扩展位）
         **kwargs: Any,
     ) -> None:
         self.llm: LLMEnv = llm

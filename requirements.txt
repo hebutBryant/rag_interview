@@ -55,3 +55,14 @@ websocket-client==1.9.0
 yarl==1.23.0
 zai==0.0.2
 zai-sdk==0.2.2
+
+# === 考题3 benchmark.py (RAGAS 评测) 依赖 ===
+# benchmark.py 用的是 ragas 0.1.x 的 API（question/answer/contexts/ground_truth 列名，
+# BaseRagasLLM.generate_text/is_finished 接口）。ragas 0.2+ 改了数据 schema 会不兼容，
+# 因此 ragas 必须锁在 0.1.x。其余依赖未锁死版本，交给 pip 按 ragas 约束解析；
+# 若解析冲突，可参考下方注释里的经验版本。
+# ragas==0.1.21
+# datasets>=2.14,<3.0
+# pandas>=1.5
+# langchain-core>=0.1.0
+

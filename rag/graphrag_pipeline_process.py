@@ -1,3 +1,18 @@
+"""
+================================================================================
+⚠️  本文件【当前无法直接运行】，仅作多进程版 GraphRAG 的参考实现，不属于面试主考题。
+
+无法运行的原因（依赖在本仓库中缺失）：
+  - from experiment.cpu_gpu.monitor import ResourceMonitor   # experiment/ 目录不存在
+  - from utils.llm import LLMEnv                              # 依赖 torch/transformers/
+                                                             #   ollama/sglang，均未列入 requirements.txt
+  - from dataset.freebase / multihop / dragonball import ... # 这些数据集需自行准备
+
+面试请使用线程版主考题： rag/graphrag_pipeline.py
+若要启用本文件，需要：补齐 experiment 监控模块、安装本地推理依赖、并准备对应数据集。
+================================================================================
+"""
+
 import os
 import math
 import re

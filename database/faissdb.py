@@ -347,7 +347,7 @@ def main():
 
     # 单条查询测试
     single_query = "science fiction movie about space"
-    single_results, single_scores = db.search(single_query, top_k=3)
+    single_results, single_scores, _ = db.search(single_query, top_k=3)
 
     print(f"\nSingle Query: {single_query}")
     print("Top results:")

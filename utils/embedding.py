@@ -15,6 +15,9 @@ class EmbeddingEnv:
         batch_size: int = 10,   # 官方建议 <=10
         max_retries: int = 3,
         sleep_time: float = 1.0,
+        device: str = None,     # 兼容旧调用方（EntitiesDB/Pruning 会传 device）；
+                                # DashScope 是云端 API，本参数无实际作用，仅作占位忽略
+        **kwargs,               # 吞掉其它历史遗留 kwargs，避免 TypeError
     ):
         """
         DashScope embedding API 版本

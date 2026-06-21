@@ -1,6 +1,5 @@
 import argparse
 import os
-from tabnanny import verbose
 import time
 from typing import Any, Dict, List, Optional
 
@@ -405,7 +404,7 @@ class LLMEnv:
         generate_time = time.time() - start_time
         prompt_text = "\n".join([f"{m['role']}: {m['content']}" for m in messages])
 
-        if self.verbose or verbose:
+        if self.verbose:
             print("=" * 80)
             print(prompt_text)
             print("-" * 80)
