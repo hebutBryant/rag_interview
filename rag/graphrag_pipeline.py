@@ -24,25 +24,31 @@ from dataset.rgb import get_triplets as get_rgb_triplets
 
 
 """
-挖空这个类的这几个函数
-_subgraph_worker()
-_pruning_worker()
-_generation_worker()
+================================================================================
+【考题 2 ｜ GraphRAG 流水线】
 
-或是改为标准接口让同学完成
-def graph_retrieve(...):
-    # 实体召回 + 子图抽取 + 路径剪枝
-    pass
+本文件实现一个三级流水线（三个后台线程 + 三个队列）的 GraphRAG：
 
-def graph_chat(...):
-    # 基于 context 调用 llm
-    pass
+    run_batch  →  subgraph_q  →  _subgraph_worker   (实体→多跳子图)
+                              →  prune_q  →  _pruning_worker     (语义剪枝路径)
+                                          →  gen_q  →  _generation_worker (LLM生成+判分)
 
-def benchmark_graphrag(...):
-    # 保存 ragas 格式结果
-    pass
+需要面试者补全的函数（参考实现已给出，正式面试时可挖空成 stub）：
+    - _subgraph_worker()    子图抽取：调用 IGraph 的 DFS 多跳检索 + 路径字符串化
+    - _pruning_worker()     路径剪枝：调用 Pruning 的语义批量剪枝
+    - _generation_worker()  答案生成：累积 context → 批量调 LLM → 判分 → early-stop
 
+这三个函数各自的详细要求写在对应函数的 docstring 里。
 
+依赖关系（面试者需要先理解）：
+    IGraph(database/igraph.py)        知识图谱，提供子图抽取 —— 见考题 2-A
+    EntitiesDB(database/entitiesdb.py) 实体向量召回（已给出）
+    Pruning(utils/pruning.py)          语义剪枝（已给出）
+    LLMEnv(utils/remote_llm.py)        LLM 封装（已给出）
+
+运行：
+    python -m rag.graphrag_pipeline --backend qwen --dataset rgb --num 10
+================================================================================
 """
 
 
@@ -148,6 +154,25 @@ class GraphRAGPipeline:
         threading.Thread(target=self._generation_worker, daemon=True).start()
 
     def _subgraph_worker(self):
+        """
+        【考题 2-B｜子图抽取 worker】（参考实现已给出，面试时可挖空）
+
+        职责：流水线第 1 级。从 subgraph_q 取任务，对任务里每个问题的
+              候选实体做多跳子图抽取，把得到的路径塞进 prune_q 交给下一级。
+
+        你需要完成的逻辑：
+          1. 阻塞式地从 self.subgraph_q.get() 取出一个 task
+             （task 至少含 "qids" 和 "entities_list"，见 run_batch 的投递格式）
+          2. 遍历 task["entities_list"]（每个元素是一个问题对应的实体列表）：
+               - 调 self.graph_db.subgraph_extraction_to_paths_dfs(entities, self.hop)
+                 做 DFS 多跳抽取，拿到 {实体: [[triplet,...], ...]}
+               - 再调 self.graph_db.convert_triplet_lists_to_paths(...)
+                 把 triplet 列表转成可读路径字符串 {实体: ["A - r -> B ...", ...]}
+          3. 把结果写回 task["triplets"]，self.prune_q.put(task)
+          4. 必须调用 self.subgraph_q.task_done()，否则 run_batch 里的 join() 永远不返回
+
+        考察点：生产者-消费者队列、多跳图检索的调用方式、task_done 配平。
+        """
         while True:
             task = self.subgraph_q.get()
 
@@ -169,6 +194,28 @@ class GraphRAGPipeline:
             self.subgraph_q.task_done()
 
     def _pruning_worker(self):
+        """
+        【考题 2-C｜路径剪枝 worker】（参考实现已给出，面试时可挖空）
+
+        职责：流水线第 2 级。把上一级抽出来的大量路径，用语义相似度筛掉无关项，
+              只保留与问题最相关的 top-k 路径作为 context，送入 gen_q。
+
+        你需要完成的逻辑：
+          1. self.prune_q.get() 取出 task（含 "qids" 和 "triplets"）
+          2. 根据 qids 还原出对应的问题文本：
+               queries = [self.all_questions[qid] for qid in task["qids"]]
+          3. 调 self.prunner.semantic_pruning_triplets_batch(
+                   questions=queries,
+                   question_triplets=task["triplets"],
+                   topk=self.pruning,
+             )
+             返回 pruned_results[qidx] = List[List[(triplet_str, score)]]（按实体分组）
+          4. 把每个问题的剪枝结果整理成 context（丢掉分数，去掉空实体），
+             写回 task["contexts"]，再 self.gen_q.put(task)
+          5. self.prune_q.task_done()
+
+        考察点：语义剪枝的批处理接口、嵌套结构(问题→实体→路径)的展开、控制送入 LLM 的上下文规模。
+        """
         while True:
             task = self.prune_q.get()
 
@@ -198,6 +245,27 @@ class GraphRAGPipeline:
             self.prune_q.task_done()
 
     def _generation_worker(self):
+        """
+        【考题 2-D｜答案生成 worker】（参考实现已给出，面试时可挖空）
+
+        职责：流水线第 3 级。把剪枝后的 context 累积到每个问题上，调 LLM 生成答案，
+              判分、记录 ragas 格式结果，并在命中时触发 early-stop。
+
+        你需要完成的逻辑：
+          1. self.gen_q.get() 取出 task（含 "qids" 和 "contexts"）
+          2. 对每个 qid：
+               - 若开了 early_stop 且 self.stop_flags[qid] 为 True，则跳过（已答对）
+               - 把本批 context 追加到 self.context_cache[qid]（注意是“累积”，
+                 因为 run_batch 把实体拆成两批分别投递，同一问题会多次到达这里）
+               - 组装 {"question": ..., "context": full_ctx} 进 data_list
+          3. self.llm.prompt_complete_batch(data_list) 批量生成
+          4. 写 self.predictions[qid] / self.sample_records[qid]（ragas 字段：
+             question / answer / contexts / ground_truth / label / prompt ...）
+          5. 若 check_answer 命中，置 self.stop_flags[qid]=True 实现提前停止
+          6. self.gen_q.task_done()
+
+        考察点：跨批次上下文累积、提前停止、ragas 结果落盘字段设计、队列收尾。
+        """
         while True:
             task = self.gen_q.get()
 

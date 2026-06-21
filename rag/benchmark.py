@@ -204,21 +204,31 @@ def build_dataset(samples: List[Dict[str, Any]]) -> Dataset:
 
 
 ######################################################################################
+# 【考题 3（可选）｜把评测流程封装成一个函数 benchmark_rag】
+#
+# 上面的 main() 已经把「读 json → 转 ragas 样本 → 建 Dataset → evaluate → 存 csv」
+# 串成了一条流水线。本题要求把它抽象成一个可复用的函数，便于对 VectorRAG /
+# GraphRAG 的产出日志分别评测。
+#
 # def benchmark_rag(
 #     input_json: str,
 #     output_dir: str,
 #     model: str = "qwen-plus",
 #     api_key: Optional[str] = None,
 #     base_url: str = "https://dashscope.aliyuncs.com/compatible-mode/v1",
-# ):
-#     pass   这里封装一个benchmark函数
-# 让学生实现完整流程：
-
-# # 1. 加载 json
-# # 2. 转换为 ragas 格式
-# # 3. 构建 dataset
-# # 4. 调用 evaluate
-# # 5. 输出 summary + csv
+# ) -> Dict[str, float]:
+#     需要完成：
+#       1. 加载 json：load_json(input_json)
+#       2. 转 ragas 样本：convert_log_to_ragas_samples(raw_data)
+#          （注意 pipeline 落盘的最后一项是 final_result 汇总，没有 question 字段，
+#            convert 里已用 "question" 存在与否过滤掉它）
+#       3. 构建 dataset：build_dataset(samples)
+#       4. 构造 evaluator_llm（QwenRagasLLM 包一层 QwenLLMEnv），调 evaluate(...)
+#          metrics = [faithfulness, context_precision, context_recall]
+#       5. 汇总每个指标的均值，输出 summary.csv + details.csv，并 return summary
+#
+# 考察点：RAGAS 三大指标的含义、自定义 LLM 适配 ragas 的 BaseRagasLLM 接口、
+#         评测结果的落盘与可复用封装。
 #####################################################################################
 
 

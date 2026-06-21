@@ -497,6 +497,51 @@ class IGraph:
         return entity_path_dict
 
 ##################################################
+# 【考题 2-A（加分项）｜更优的子图检索算法】
+#
+# 上面 subgraph_extraction_to_paths_simple / _dfs 都属于「从实体出发、无差别枚举
+# hop 跳以内所有路径」的暴力遍历。在真实知识图谱上，实体度数很高、hop 一大，
+# 路径会指数级爆炸，既慢又会把无关路径塞进上下文。
+#
+# 加分项：除了 DFS / simple-path 这类穷举遍历，你还能想到哪些更好的图查询 / 检索算法？
+# 请实现下面的 subgraph_extraction_to_paths_advanced(...)（可自选一种或多种思路）。
+#
+# 一些可参考的方向（提示，不限于此）：
+#   1. BFS 分层遍历        —— 按 hop 一层层扩展，便于在每层做剪枝 / 早停。
+#   2. 双向搜索 (bidirectional) —— 已知问题实体和候选答案实体时，两端同时扩展，
+#                              在中间汇合，复杂度远低于单向 hop 跳枚举。
+#   3. 最短路 / k-最短路   —— 只取实体对之间的最短若干条路径（Dijkstra / k-shortest）。
+#   4. 带权扩展 + beam search —— 每跳用 embedding/LLM 给「关系-邻居」打分，只保留 top-b
+#                              个分支继续扩展（关系剪枝），把检索和剪枝合到一起。
+#   5. Personalized PageRank / Random Walk with Restart —— 以问题实体为种子做随机游走，
+#                              取访问概率最高的子图（许多 GraphRAG/KBQA 系统的做法）。
+#   6. Steiner 树 / 最小连通子图 —— 求能把多个问题实体连起来的最小子图。
+#
+# 考察点：图算法选型与复杂度权衡、检索召回与上下文规模的平衡、如何把语义相关性
+#         融入图遍历（而不是先全量枚举再事后剪枝）。
+#
+# 提示：返回结构尽量和 _dfs 对齐（Dict[entity, List[List[triplet]]]），
+#       这样可以直接复用 convert_triplet_lists_to_paths 做路径字符串化，
+#       也能无缝接入 GraphRAGPipeline._subgraph_worker。
+
+    def subgraph_extraction_to_paths_advanced(self, entities: List[str], hop: int):
+        """
+        【加分项 / 选做】实现一种比 DFS 穷举更优的子图检索算法。
+
+        Args:
+            entities: 起始实体列表
+            hop:      最大跳数
+        Returns:
+            建议与 subgraph_extraction_to_paths_dfs 保持一致：
+            Dict[str, List[List[Tuple[str, str, str]]]]
+        """
+        # TODO: 在此实现你选择的图检索算法（BFS / 双向 / 最短路 / beam / PPR / Steiner ...）
+        raise NotImplementedError(
+            "加分项：请实现一种优于 DFS 穷举的子图检索算法，"
+            "并在 README 中说明你的选型理由与复杂度权衡。"
+        )
+
+##################################################
 
     def convert_triplet_lists_to_paths(self, entity_triplets_dict):
         entity_path_dict = {}
